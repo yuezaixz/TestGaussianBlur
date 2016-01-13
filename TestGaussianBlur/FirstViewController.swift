@@ -33,7 +33,11 @@ class FirstViewController: UIViewController {
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.imageView.image = CommonUtils.blurryImage(image, withBlurLevel: 0.2)
+                let blurImage = CommonUtils.blurryImage(image, withBlurLevel: 0.2)
+                //btn才能这么搞
+//                blurImage = blurImage.imageWithRenderingMode(.AlwaysTemplate)
+//                self.imageView.tintColor = UIColor.yellowColor()
+                self.imageView.image = blurImage
             })
             
         }
